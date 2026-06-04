@@ -1,0 +1,159 @@
+---
+import { Font } from "astro:assets";
+interface Props {
+    title: string;
+    desc: string;
+}
+const { title, desc } = Astro.props;
+---
+
+<style>
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    #home:before,
+    #thingsmenu:before,
+    #about:before,
+    #gallery:before,
+    #entries:before,
+    #streams:before,
+    #zines:before,
+    #bidules:before,
+    #portfolio:before {
+        font-size: 100%;
+        margin-left: 8px;
+        margin-right: 4px;
+        color: var(--main-color);
+    }
+
+    #home:before {
+        content: "⌂ ";
+    }
+
+    #gallery:before {
+        content: "🖼 ";
+    }
+
+    #entries:before {
+        content: "✏ ";
+    }
+
+    #thingsmenu:before {
+        content: "🛰 ";
+    }
+
+    #about:before {
+        content: "🌀 ";
+    }
+
+    #streams:before {
+        content: "➰  ";
+    }
+
+    #bidules:before {
+        content: "🌊 ";
+    }
+
+    #portfolio:before {
+        content: "📙 ";
+    }
+
+    .internal-link {
+        text-decoration: solid underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .internal-link:hover {
+        color: #dee3df;
+        text-decoration: solid overline underline var(--main-color);
+        text-decoration-thickness: 4px;
+    }
+</style>
+<nav>
+    <ul>
+        <li id="home">
+            {
+                title === "home" ? (
+                    "home"
+                ) : (
+                    <a href="/" class="internal-link">
+                        home
+                    </a>
+                )
+            }
+        </li>
+        <li id="portfolio">
+            {
+                title === "portfolio" ? (
+                    "portfolio"
+                ) : (
+                    <a href="portfolio" class="internal-link">
+                        portfolio
+                    </a>
+                )
+            }
+        </li>
+        <li id="gallery">
+            {
+                title === "gallery" ? (
+                    "gallery"
+                ) : (
+                    <a href="gallery" class="internal-link">
+                        gallery
+                    </a>
+                )
+            }
+        </li>
+        <li id="entries">
+            {
+                title === "entries" ? (
+                    "entries"
+                ) : (
+                    <a href="entries" class="internal-link">
+                        entries
+                    </a>
+                )
+            }
+        </li>
+        <li id="thingsmenu">
+            {
+                title === "things" ? (
+                    "things"
+                ) : (
+                    <a href="things" class="internal-link">
+                        things
+                    </a>
+                )
+            }
+        </li>
+        <li id="streams">
+            {
+                title === "streams" ? (
+                    "streams"
+                ) : (
+                    <a href="streams" class="internal-link">
+                        streams
+                    </a>
+                )
+            }
+        </li>
+        <li id="bidules">
+            {
+                title === "bidules" ? (
+                    "bidules"
+                ) : (
+                    <a href="bidules" class="internal-link">
+                        bidules
+                    </a>
+                )
+            }
+        </li>
+    </ul>
+</nav>

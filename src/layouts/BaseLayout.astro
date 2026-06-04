@@ -1,0 +1,37 @@
+---
+import { Font } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+import Footer from "../components/Footer.astro";
+interface Props {
+    title: string;
+    desc: string;
+}
+const { title, desc } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Font cssVariable="--font-vg" />
+        <BaseHead title={title} desc={desc} />
+    </head>
+    <body>
+        <h1>{title}</h1>
+        <h4>{desc}</h4>
+        <Footer />
+    </body><style>
+        :root {
+            --main-color: #5ac26a;
+            background-color: black;
+            color: #dee3df;
+            font-size: 1.4rem;
+            list-style-type: none;
+            text-transform: lowercase;
+            padding: 15px;
+        }
+        html {
+            font-family: var(--font-vg);
+        }
+    </style>
+</html>
