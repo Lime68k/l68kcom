@@ -3,6 +3,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
+    outDir: "../l68k_pub",
     fonts: [{
         provider: fontProviders.local(),
         name: "VG5000",
