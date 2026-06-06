@@ -2,4 +2,14 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="things" desc="links and things" pageId="things"/>
+<style>
+    #thingstitle:before {
+        content: "🛰 ";
+        color: var(--main-color);
+    }
+</style>
+
+<BaseLayout title="things" desc="links and things" pageId="things">
+    <h1 id="thingstitle">things</h1>
+    <h4>links and things</h4>
+</BaseLayout>

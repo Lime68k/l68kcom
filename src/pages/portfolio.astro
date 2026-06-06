@@ -12,7 +12,10 @@ import { Image } from "astro:assets";
 	title="portfolio"
 	desc="artworks and graphic related stuff i've worked on"
 	pageId="portfolio"
-	><style>
+>
+	<h1 id="portfoliotitle">portfolio</h1>
+	<h4>artworks and graphic related stuff i've worked on</h4>
+	<style>
 		.portfolio-grid {
 			display: grid;
 			grid-template-columns: repeat(3, 2fr);
@@ -24,6 +27,7 @@ import { Image } from "astro:assets";
 			object-fit: cover;
 		}
 	</style>
+
 	<div class="portfolio-grid">
 		<div>
 			<Image
