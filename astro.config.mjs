@@ -10,7 +10,7 @@ export default defineConfig({
         cssVariable: "--font-vg",
         options: {
             variants: [{
-                src: ['./src/assets/fonts/font.otf'],
+                src: ['./src/assets/fonts/VG5000.otf'],
                 weight: 'normal',
                 style: 'normal'
             }]

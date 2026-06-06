@@ -2,9 +2,8 @@
 import { Font } from "astro:assets";
 interface Props {
     title: string;
-    desc: string;
 }
-const { title, desc } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <style>
@@ -17,7 +16,7 @@ const { title, desc } = Astro.props;
         display: inline-block;
     }
 
-    #home:before,
+    #index:before,
     #thingsmenu:before,
     #about:before,
     #gallery:before,
@@ -29,7 +28,7 @@ const { title, desc } = Astro.props;
         font-size: 100%;
         margin-left: 8px;
         margin-right: 4px;
-        color: var(--main-color);
+        color: #5ac26a;
     }
 
     #home:before {

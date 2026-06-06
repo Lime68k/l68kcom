@@ -1,0 +1,235 @@
+<style is:global>
+    :root {
+        --main-color: #5ac26a;
+    }
+
+    body {
+        background-color: #0b0b0b;
+        color: #dee3df;
+        font-family: VG5000;
+        font-size: 1.4rem;
+        list-style-type: none;
+        text-transform: lowercase;
+        padding: 15px;
+    }
+
+    footer {
+        margin-top: 10em;
+        font-size: 80%;
+    }
+
+    footer img {
+        height: 20px;
+        width: auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+    /* -----external links----- */
+
+    .external-link:before {
+        content: "↗ ";
+        color: var(--main-color);
+    }
+
+    .external-link {
+        text-decoration: dotted underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .external-link:hover {
+        color: #dee3df;
+        text-decoration: dotted overline underline var(--main-color);
+        text-decoration-thickness: 4px;
+    }
+
+    /*  ----------------------- */
+
+    /* -----internal links----- */
+
+    .internal-link {
+        text-decoration: solid underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .internal-link:hover {
+        color: #dee3df;
+        text-decoration: solid overline underline var(--main-color);
+        text-decoration-thickness: 4px;
+    }
+
+    /*  ----------------------- */
+
+    #streamcontain {
+        position: relative;
+    }
+
+    #notfound:before {
+        content: "?· · · ·";
+        color: var(--main-color);
+    }
+
+    #home:before {
+        content: "⌂ ";
+        color: var(--main-color);
+    }
+
+    #abouttitle:before {
+        content: "🌀 ";
+        color: var(--main-color);
+    }
+
+    #thingstitle:before {
+        content: "🛰 ";
+        color: var(--main-color);
+    }
+
+    #gallerytitle:before {
+        content: "🖼 ";
+        color: var(--main-color);
+    }
+
+    #entriestitle:before {
+        content: "✏ ";
+        color: var(--main-color);
+    }
+
+    #streamstitle:before {
+        content: "➰ ";
+        color: var(--main-color);
+    }
+
+    #bidulestitle:before {
+        content: "🌊 ";
+        color: var(--main-color);
+    }
+
+    #zinestitle:before {
+        content: "📕 ";
+        color: var(--main-color);
+    }
+
+    #portfoliotitle:before {
+        content: "📙 ";
+        color: var(--main-color);
+    }
+
+    .card {
+        width: 90%;
+        height: 20%;
+        outline: 1px dashed var(--main-color);
+        padding: 12px;
+        margin: 8px;
+    }
+
+    .stuff-rows {
+        outline: 1px dotted var(--main-color);
+        margin: 8px;
+        text-wrap: balance;
+    }
+
+    .card_down {
+        width: 90%;
+        height: 20%;
+        outline: 1px dotted var(--main-color);
+        padding: 8px;
+        margin: 12px;
+    }
+
+    .external-link:before {
+        content: "↗ ";
+        color: var(--main-color);
+    }
+
+    .external-link {
+        text-decoration: dotted underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .external-link:hover {
+        color: #dee3df;
+        text-decoration: dotted overline underline var(--main-color);
+        text-decoration-thickness: 4px;
+    }
+
+    .thing-viz:before {
+        content: "☼ ";
+        color: var(--main-color);
+    }
+
+    .thing-sound:before {
+        content: "📶 ";
+        color: var(--main-color);
+    }
+
+    .reviews-list:before {
+        content: "📃 ";
+        color: var(--main-color);
+    }
+
+    .category-tool:before {
+        content: "✂ ";
+        color: var(--main-color);
+    }
+
+    .category-sound:before {
+        content: "📶 ";
+        color: var(--main-color);
+    }
+
+    .category-read:before {
+        content: "📘 ";
+        color: var(--main-color);
+    }
+
+    .emptyfolder:before {
+        content: "📁…";
+        color: var(--main-color);
+    }
+
+    .mystery:before {
+        content: "🔎 ";
+        color: var(--main-color);
+    }
+
+    .about-thing {
+        color: var(--main-color);
+    }
+
+    .about-thing:after {
+        content: "▷ ";
+        color: var(--main-color);
+    }
+
+    .defunct-proj:before {
+        content: "† ";
+        color: var(--main-color);
+    }
+
+    .defunct-proj {
+        display: inline-block;
+        text-decoration: dashed underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 1px;
+    }
+
+    .notice {
+        display: inline-block;
+        text-decoration: dashed underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 1px;
+    }
+
+    .bidule-sound:before {
+        content: "⌇ ⦚ ";
+    }
+
+    .zine::before {
+        content: "📖 ";
+        color: var(--main-color);
+    }
+</style>
