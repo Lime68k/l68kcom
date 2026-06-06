@@ -1,5 +1,104 @@
 ---
+import { Image } from "astro:assets";
+import fface from "../assets/img/fface.png";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="home" desc="hey there" />
+<BaseLayout title="home" desc="hey there" pageId="hometitle">
+	<style>
+		:root {
+			--main-color: #5ac26a;
+		}
+		#abouttext {
+			width: 90%;
+			height: 20%;
+			outline: 1px dotted var(--main-color);
+			padding: 12px;
+		}
+
+		#hometitle:before {
+			content: "⌂ ";
+			color: #5ac26a;
+		}
+	</style>
+	<h1 id="hometitle">home</h1>
+	<h4>hey there</h4>
+
+	<div id="abouttext">
+		<p><span class="about-thing">⌂ </span>rennes, fr</p>
+
+		<p>
+			<span class="about-thing">✉ </span>
+			<a
+				href="https://post.lurk.org/@Lime"
+				class="external-link"
+				target="_blank">mastodon</a
+			> ~ <a
+				href="https://bsky.app/profile/l68k.com"
+				class="external-link"
+				target="_blank">bluesky</a
+			> ~ <a
+				href="https://instagram.com/lime68k"
+				class="external-link"
+				target="_blank">instagram</a
+			>
+		</p>
+
+		<p>
+			<span class="about-thing">♫ </span><a
+				class="external-link"
+				href="https://lime68k.bandcamp.com/">bandcamp</a
+			> ~ <a
+				class="external-link"
+				href="https://mirlo.space/lime68k/releases">mirlo</a
+			> ~
+
+			<a class="external-link" href="https://soundcloud.com/lime68k/"
+				>soundcloud</a
+			> ~ <a class="external-link" href="https://www.youtube.com/@lime68k"
+				>youtube</a
+			>
+		</p>
+
+		<p>
+			i'm camille, aka lime68k and 1x1. i make sound and visual things,
+			mostly through software like <a
+				href="https://cycling74.com/products/max"
+				class="external-link">max</a
+			>, <a href="https://www.ableton.com/" class="external-link"
+				>ableton</a
+			>, <a href="https://tidalcycles.org/" class="external-link"
+				>tidalcycles</a
+			> and <a
+				href="https://www.blender.org/"
+				target="_blank"
+				class="external-link">blender</a
+			>.
+		</p>
+		<p>
+			on this website there's a <a href="portfolio" class="internal-link"
+				>portfolio</a
+			> and a <a href="gallery" class="internal-link">gallery</a> for visual
+			stuff, things i <a href="entries" class="internal-link">wrote</a> (mostly
+			reviews as of feb 25), lists of different <a
+				href="things"
+				class="internal-link">things</a
+			>, a <a href="streams" class="internal-link">weird place</a> and weird
+			<a href="bidules" class="internal-link">bidules</a>.
+		</p>
+
+		<Image
+			src={fface}
+			style="object-fit: contain;width: 100%;height: auto;"
+			alt="me"
+		/>
+	</div>
+
+	<h5>
+		website font: VG5000 by Justin Bihan. Distributed by <a
+			href="https://velvetyne.fr/"
+			target="_blank"
+			class="external-link">velvetyne.fr</a
+		>.
+	</h5>
+</BaseLayout>

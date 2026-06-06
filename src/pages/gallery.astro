@@ -1,5 +1,78 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseGallery from "../components/BaseGallery.astro";
+import aa from "../assets/img/1.jpg";
+import ab from "../assets/img/2.jpg";
+import ac from "../assets/img/3.jpg";
+import ad from "../assets/img/4.jpg";
+import ae from "../assets/img/5.jpg";
+import af from "../assets/img/6.jpg";
+import ag from "../assets/img/7.jpg";
+import ah from "../assets/img/8.jpg";
+import ai from "../assets/img/9.jpg";
+import aj from "../assets/img/10.jpg";
+import ak from "../assets/img/11.jpg";
+import al from "../assets/img/12.jpg";
+import am from "../assets/img/13.jpg";
+import an from "../assets/img/14.jpg";
+import ao from "../assets/img/15.jpg";
+import ap from "../assets/img/16.jpg";
+import aq from "../assets/img/17.jpg";
+import ar from "../assets/img/18.jpg";
+import as from "../assets/img/19.jpg";
+import at from "../assets/img/20.jpg";
+import au from "../assets/img/render_3.jpg";
+import av from "../assets/img/render_4.jpg";
+import aw from "../assets/img/render_5.jpg";
+import ax from "../assets/img/render_6.jpg";
+import ay from "../assets/img/render_7.jpg";
+import az from "../assets/img/render_8.jpg";
 ---
 
-<BaseLayout title="gallery" desc="visual stuff" />
+<style>
+    @media (max-width: 900px) {
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    @media screen {
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+<BaseLayout title="gallery" desc="visual stuff" pageId="gallery">
+    <div class="gallery">
+        <BaseGallery name={az} altTxt="" />
+        <BaseGallery name={ay} altTxt="" />
+        <BaseGallery name={ax} altTxt="" />
+        <BaseGallery name={aw} altTxt="" />
+        <BaseGallery name={av} altTxt="" />
+        <BaseGallery name={au} altTxt="" />
+        <BaseGallery name={at} altTxt="" />
+        <BaseGallery name={as} altTxt="" />
+        <BaseGallery name={ar} altTxt="" />
+        <BaseGallery name={aq} altTxt="" />
+        <BaseGallery name={ap} altTxt="" />
+        <BaseGallery name={ao} altTxt="" />
+        <BaseGallery name={an} altTxt="" />
+        <BaseGallery name={am} altTxt="" />
+        <BaseGallery name={al} altTxt="" />
+        <BaseGallery name={ak} altTxt="" />
+        <BaseGallery name={aj} altTxt="" />
+        <BaseGallery name={ai} altTxt="" />
+        <BaseGallery name={ah} altTxt="" />
+        <BaseGallery name={ag} altTxt="" />
+        <BaseGallery name={af} altTxt="" />
+        <BaseGallery name={ae} altTxt="" />
+        <BaseGallery name={ad} altTxt="" />
+        <BaseGallery name={ac} altTxt="" />
+        <BaseGallery name={ab} altTxt="" />
+        <BaseGallery name={aa} altTxt="" />
+    </div>
+</BaseLayout>

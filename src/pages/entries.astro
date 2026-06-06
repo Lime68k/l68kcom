@@ -1,5 +1,21 @@
 ---
+import BaseEntries from "../components/BaseEntries.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="entries" desc="things i wrote" />
+<BaseLayout title="entries" desc="things i wrote" pageId="entries">
+    <div class="entries-list card">
+        <BaseEntries
+            entry="Trièdre - Evasions Fertiles (Roulette Rekordz) [review]"
+            url="https://igloomag.com/reviews/triedre-evasions-fertiles-roulette-rekordz"
+        />
+        <BaseEntries
+            entry="Synalegg - Oonst EP (Tokinogake) [review]"
+            url="https://igloomag.com/reviews/synalegg-oonst-tokinogake"
+        />
+        <BaseEntries
+            entry="MTCH - Qurv Trysr (Point Source Electronic Arts) [review]"
+            url="https://igloomag.com/reviews/mtch-qurv-trysr-point-source-electronic-arts"
+        />
+    </div></BaseLayout
+>
