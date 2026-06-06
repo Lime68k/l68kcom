@@ -4,7 +4,7 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://lime68k.github.io/',
-    base: '/l68kcom',
+    base: '/l68kcom/',
     fonts: [{
         provider: fontProviders.local(),
         name: "VG5000",
