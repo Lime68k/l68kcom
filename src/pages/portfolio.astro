@@ -17,67 +17,74 @@ import { Image } from "astro:assets";
     <h1 id="portfoliotitle">portfolio</h1>
     <h4>artworks and graphic related stuff i've worked on</h4>
     <style>
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 2fr);
+        #pf-cont {
+            flex-direction: column;
+            width: 80%;
+            height: 80%;
         }
-
         .pf-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 80%;
+            height: 80%;
+        }
+        .pf-el {
+            padding-bottom: 10%;
         }
     </style>
 
-    <div class="portfolio-grid">
-        <div>
-            <Image
-                src={resilience}
-                class="pf-img"
-                alt="Resilience by Daniel M Karlsson"
-            /><a
+    <div id="pf-cont">
+        <div class="pf-el">
+            <a
                 href="https://evel.bandcamp.com/album/resilience"
                 class="external-link"
                 target="_blank">resilience by daniel m karlsson</a
             >
+            <Image
+                src={resilience}
+                class="pf-img"
+                alt="Resilience by Daniel M Karlsson"
+            />
         </div>
-        <div>
-            <Image src={trnscrptn} class="pf-img" alt="TRNSCRPTN by Azkyll" /><a
+        <div class="pf-el">
+            <a
                 href="https://clutteredmembrane.bandcamp.com/album/trnscrptn"
                 class="external-link"
                 target="_blank">trnscrptn by azkyll</a
             >
+            <Image src={trnscrptn} class="pf-img" alt="TRNSCRPTN by Azkyll" />
         </div>
-        <div>
-            <Image src={cluttered} class="pf-img" alt="Clutterd Membrane" /><a
+        <div class="pf-el">
+            <a
                 href="https://clutteredmembrane.bandcamp.com/"
                 class="external-link"
                 target="_blank">logo for cluttered membrane</a
             >
+            <Image src={cluttered} class="pf-img" alt="Clutterd Membrane" />
         </div>
-        <div>
-            <Image
-                src={bellyof}
-                class="pf-img"
-                alt="bellyofthebeast by Azkyll"
-            /><a
+        <div class="pf-el">
+            <a
                 href="https://azkyll.bandcamp.com/album/bellyofthebeast"
                 class="external-link"
                 target="_blank">bellyofthebeast by azkyll</a
             >
+            <Image
+                src={bellyof}
+                class="pf-img"
+                alt="bellyofthebeast by Azkyll"
+            />
         </div>
-        <div>
-            <Image src={toplaprennes} class="pf-img" alt="TOPLAP Rennes" /><a
+        <div class="pf-el">
+            <a
                 href="https://instagram.com/toplap_rennes"
                 class="external-link"
                 target="_blank">logo for toplap rennes</a
             >
+            <Image src={toplaprennes} class="pf-img" alt="TOPLAP Rennes" />
         </div>
-        <div>
-            <Image src={aa} class="pf-img" alt="to gallery" />other stuff in the <a
-                href="/l68kcom/gallery"
-                class="internal-link">gallery</a
+        <div class="pf-el">
+            other stuff in the <a href="/l68kcom/gallery" class="internal-link"
+                >gallery</a
             >
+            <Image src={aa} class="pf-img" alt="to gallery" />
         </div>
     </div>
 </BaseLayout>
