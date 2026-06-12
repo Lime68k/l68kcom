@@ -2,11 +2,10 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="noiseeeeee" desc="noise generator">
+<BaseLayout title="noiseeeeee" desc="noise generator" pageId="">
     <script>
         async function setup() {
-            const patchExportURL =
-                "/src/assets/bidules/noisee/noise.export.json";
+            const patchExportURL = "/public/noise.export.json";
 
             // Create AudioContext
             const WAContext = window.AudioContext || window.webkitAudioContext;
