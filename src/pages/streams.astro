@@ -4,4 +4,360 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout title="streams" desc="" pageId="streams">
     <h1 id="streamstitle">streams</h1>
+    <a
+        href="javascript:window.location.href=window.location.href"
+        class="internal-link"
+    >
+        <h5>
+            <span style="color: #5ac26a;">🔄</span> refresh for other streams
+        </h5>
+    </a>
+    <div id="streamcontain"></div>
+    <script>
+        /**
+    ------[data]------
+     * streams_objects
+     * txt_deco_shape
+     * txt_deco_position
+     * txt_deco_color
+     * txt_deco_debris
+    -------------------
+    **/
+
+        // path for sound & image files
+
+        // stream objects json data
+        const streams_objects = `{
+        "txts": [
+          {
+            "content": "⚢ ⚧",
+            "prob": "0.6"
+          },
+          {
+            "content": "⚢",
+            "prob": "0.8"
+          },
+          {
+            "content": "⚧",
+            "prob": "0.8"
+          },
+          {
+            "content": "⦚⦚⦚⦚⦚⦚⦚@@@@ @",
+            "prob": "0.7"
+          },
+          {
+            "content": "  noworry.▩⬇⬇⬇⬇⬇⬇⬇",
+            "prob": "0.4"
+          },
+          {
+            "content": "proba▜▩ilit▜▜▜ieisis",
+            "prob": "0.6"
+          },
+          {
+            "content": "",
+            "prob": "0.6"
+          },
+          {
+            "content": "▧cle▜▜ar",
+            "prob": "0.6"
+          },
+          {
+            "content": "u▜▜▜e▜u",
+            "prob": "0.7"
+          },
+          {
+            "content": "▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚ \\n ▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚ \\n ▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚▒˚⃟˚▒˚",
+            "prob": "0.5"
+          },
+          {
+            "content": "▒▓▤▥▛▛▛▩▒▓▤▥▦▧▨▩▒▓▤▩▒▓▤▥▛▓▤\\n▥▦▧▨▩▒▓▤▥▦▧▨▩▒▓▤▥▦▧▨▩▒▓▤▥",
+            "prob": "0.4"
+          },
+          {
+            "content": "✉ noo¯ ° ·  º  ˇ ˘ ˙ ¨ o ˝ ~oooo ^ ",
+            "prob": "0.8"
+          },
+          {
+            "content": "° ·  º  ˇ ˘▛·  °˝ ~ ^ ",
+            "prob": "0.8"
+          },
+          {
+          "content": "▚▚▚▛▛▚▚▚ˇ˘˙▚▚▚▚▚ˇ ˘ ˙ ˘˙▚▚▚▚▚",
+          "prob": "0.7"
+          }
+        ]
+    }`;
+
+        // text-decoration line shapes
+        const txt_deco_shape = {
+            1: "solid",
+            2: "double",
+            3: "dotted",
+            4: "dashed",
+            5: "wavy",
+        };
+
+        // text-decoration line position
+        const txt_deco_position = {
+            1: "underline",
+            2: "overline",
+            3: "line-through",
+            4: "underline overline",
+            5: "none",
+        };
+
+        const txt_deco_text_orientation = {
+            1: "0",
+            2: "180",
+        };
+
+        // text-decoration line color
+        const txt_deco_color = {
+            1: "#5cbc6a",
+            2: "#dee3df",
+            3: "#7f94aaff",
+        };
+
+        // text before & after debris
+        const txt_deco_debris = {
+            1: "𝄢",
+            2: "vvvvvvvvvvvvvvvvvvvvv",
+            3: "⋔*°__*°⋔*°__*°⋔",
+            4: "vv ◿☁",
+            5: "♥ 🖐 yyy",
+            6: "yay ",
+            7: "🔔",
+            8: "ok ..👆  👊🙁 ",
+            9: "📗📘📖💬",
+            10: "⌇ ◿◸ ⦚⌇ ⦚..*°⌇◸◸◸◸◸a◿◿▜rk⦚⌇ ⦚⌇ ⦚ ⦚⌇ ⦚",
+            11: "♻🔀🔄→ 🖼",
+            12: "♻🔀🔄→ ♪ ♫ ♪ ♪ ♪ ♪ ♪ ",
+            13: "theres that☄",
+            14: "again here ☁",
+        };
+
+        const txt_deco_emphasis = {
+            1: "none",
+            2: "filled",
+            3: "open",
+            4: "dot",
+            5: "circle",
+            6: "double-circle",
+            7: "triangle",
+            8: "sesame",
+            9: "♥",
+            10: "😉",
+            11: "✦",
+        };
+
+        /**
+    ------[utils]------
+     * get_random_bound(limit)
+     * get_rare_prob(prob)
+     * get_random_object_attribute_value(bound)
+     * prob_state (get_rare_prob(prob))
+     * get_streams(type)
+     * scramble_txt_streams()
+    -------------------
+    **/
+
+        // generate a random bound for a provided max
+        const get_random_bound = (limit) => Math.floor(Math.random() * limit);
+
+        // generate probability for provided 'prob' value
+        const get_rare_prob = (prob) => Math.random() * prob;
+
+        // generate a random value for an object with a provided bound
+        const get_random_object_attribute_value = (bound) =>
+            Math.random() * get_random_bound(bound);
+
+        // rare state (display or not)
+        const prob_state = get_rare_prob(10);
+
+        // get stream objects for a provided type
+        function get_streams(type) {
+            const data = JSON.parse(streams_objects);
+
+            const txts = data.txts;
+            const txts_data = [];
+
+            txts.forEach((txt) => {
+                txts_data.push({
+                    txt: txt.content,
+                    prob: txt.prob,
+                });
+            });
+
+            return txts_data;
+        }
+
+        // scramble list with text
+        function scramble_txt_streams() {
+            const data = JSON.parse(streams_objects);
+
+            const txts = data.txts;
+            const txts_data = [];
+
+            txts.forEach((txt) => {
+                const content = txt.content.split("");
+
+                for (let i = content.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+
+                    [content[i], content[j]] = [content[j], content[i]];
+                }
+
+                txts_data.push({ txt: content.join(" ") });
+            });
+
+            return txts_data;
+        }
+
+        /**
+    ------[txt]------
+     * random_txt_deco()
+     * random_txt_debris()
+     * random_txts()
+    -------------------
+    **/
+
+        // generate text decoration for txt object
+        function random_txt_deco() {
+            const shapes_length = Object.keys(txt_deco_shape).length;
+            const positions_length = Object.keys(txt_deco_position).length;
+            const colors_length = Object.keys(txt_deco_color).length;
+            const emphasis_length = Object.keys(txt_deco_emphasis).length;
+
+            const rnd_shape = Math.floor(Math.random() * shapes_length + 1);
+            const rnd_position = Math.floor(
+                Math.random() * positions_length + 1,
+            );
+            const rnd_color = Math.floor(Math.random() * colors_length + 1);
+            const rnd_thickness = Math.floor(Math.random() * 50);
+            const thickness = rnd_thickness + "px";
+            const rnd_emphasis = Math.floor(
+                Math.random() * emphasis_length + 1,
+            );
+            const rnd_emphasis_color = Math.floor(
+                Math.random() * colors_length + 1,
+            );
+
+            const rnd_sub_color = Math.floor(Math.random() * colors_length + 1);
+            const rnd_sup_color = Math.floor(Math.random() * colors_length + 1);
+
+            const final_deco = [];
+
+            const txt_deco =
+                txt_deco_shape[rnd_shape] +
+                " " +
+                txt_deco_position[rnd_position] +
+                " " +
+                txt_deco_color[rnd_color];
+
+            final_deco.push(txt_deco);
+            final_deco.push(txt_deco_color[rnd_color]);
+            final_deco.push(txt_deco_color[rnd_sub_color]);
+            final_deco.push(txt_deco_color[rnd_sup_color]);
+            final_deco.push(thickness);
+            final_deco.push(txt_deco_emphasis[rnd_emphasis]);
+            final_deco.push(txt_deco_color[rnd_emphasis_color]);
+
+            return final_deco;
+        }
+
+        // generate random debris for txt
+        function random_txt_debris() {
+            const debris_length = Object.keys(txt_deco_debris).length;
+
+            const rnd_debris = Math.floor(Math.random() * debris_length + 1);
+
+            return txt_deco_debris[rnd_debris];
+        }
+
+        // get and place random txts objects
+        function random_txts() {
+            const txts = get_streams("txts");
+            const scrambled_txts = scramble_txt_streams();
+
+            const prob_scramble = Math.random();
+            const txts_source = prob_scramble > 0.5 ? scrambled_txts : txts;
+
+            const rnd_amt = Math.floor(Math.random() * 200);
+            const max_txt = Math.floor(
+                Math.random() * txts_source.length + rnd_amt,
+            );
+
+            for (let i = 0; i < max_txt; i++) {
+                const rnd_txt = Math.floor(Math.random() * txts_source.length);
+                const txt = txts_source[rnd_txt].txt;
+
+                const rnd_deco = random_txt_deco();
+
+                const prob_event_emphasis = Math.random();
+
+                const new_streamtxt = document.createElement("div");
+                new_streamtxt.setAttribute("id", "streamtxt");
+
+                const new_txt = document.createTextNode(txt);
+
+                new_streamtxt.style.marginLeft =
+                    get_random_object_attribute_value(70) + "%";
+                new_streamtxt.style.marginBottom =
+                    get_random_object_attribute_value(40) + "px";
+                new_streamtxt.style.fontSize =
+                    get_random_object_attribute_value(90) + "px";
+                new_streamtxt.style.setProperty(
+                    "text-decoration",
+                    `${rnd_deco[0]} ${rnd_deco[4]}`,
+                );
+
+                prob_event_emphasis > 0.5
+                    ? new_streamtxt.style.setProperty(
+                          "text-emphasis",
+                          `${rnd_deco[5]} ${rnd_deco[6]}`,
+                      )
+                    : "";
+
+                new_streamtxt.style.setProperty(
+                    "word-spacing",
+                    get_random_object_attribute_value(50) + "px",
+                );
+                new_streamtxt.style.setProperty(
+                    "letter-spacing",
+                    get_random_object_attribute_value(50) + "px",
+                );
+                new_streamtxt.style.color = rnd_deco[1];
+
+                const new_sub_debris = document.createElement("sub");
+                const new_txt_sub_debris =
+                    document.createTextNode(random_txt_debris());
+
+                new_sub_debris.style.color = rnd_deco[2];
+                new_sub_debris.appendChild(new_txt_sub_debris);
+
+                const new_sup_debris = document.createElement("sup");
+                const new_txt_sup_debris =
+                    document.createTextNode(random_txt_debris());
+
+                new_sup_debris.style = rnd_deco[3];
+                new_sup_debris.appendChild(new_txt_sup_debris);
+
+                new_streamtxt.appendChild(new_txt);
+                new_streamtxt.appendChild(new_sup_debris);
+                new_streamtxt.appendChild(new_sub_debris);
+
+                const streams_container =
+                    document.querySelector("#streamcontain");
+
+                streams_container.appendChild(new_streamtxt);
+            }
+        }
+
+        /**
+    ------[calls!!]------
+     * random_txts()
+    -------------------
+    **/
+        random_txts();
+    </script>
 </BaseLayout>

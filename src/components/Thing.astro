@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    date?: string;
+    name: string;
+    thingType: string;
+    link?: string;
+    linkType?: string;
+    linkName?: string | null;
+    releaseImageLink?: ImageMetadata | null;
+    imageAlt: string;
+}
+const {
+    date,
+    name,
+    thingType,
+    link,
+    linkType,
+    linkName,
+    releaseImageLink,
+    imageAlt,
+} = Astro.props;
+---
+
+<div class={thingType}>
+    {name}
+    <a
+        href={link}
+        class={linkType}
+        target={linkType === "external-link" ? "_blank" : ""}
+        >{linkName}{
+            releaseImageLink ? (
+                <Image src={releaseImageLink} alt={imageAlt} />
+            ) : (
+                " "
+            )
+        }</a
+    >
+    {date ? <span style="color: #96ae8d"> ←{date} </span> : ""}
+</div>

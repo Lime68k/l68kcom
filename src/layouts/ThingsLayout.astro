@@ -1,0 +1,35 @@
+---
+import BaseThingsSound from "../components/BaseThingsSound.astro";
+import BaseThingsTools from "../components/BaseThingsTools.astro";
+import BaseThingsRead from "../components/BaseThingsRead.astro";
+import BaseThingsEvents from "../components/BaseThingsEvents.astro";
+import Thing from "../components/Thing.astro";
+---
+
+<div class="card things">
+    <BaseThingsTools>
+        <Thing
+            name=""
+            link="/l68kcom/things/vjing"
+            thingType="thing-viz"
+            imageAlt=""
+            linkType="internal-link"
+            linkName="vjing tools and resources list"
+        />
+        <Thing
+            name="plugdata, "
+            thingType="thing-sound"
+            link="https://plugdata.org/"
+            imageAlt=""
+            linkType="external-link"
+            linkName="a modern frontend for puredata"
+        />
+    </BaseThingsTools>
+    <BaseThingsSound>
+        <li class="emptyfolder"></li>
+    </BaseThingsSound>
+    <BaseThingsRead>
+        <li class="emptyfolder"></li>
+    </BaseThingsRead>
+    <BaseThingsEvents />
+</div>

@@ -88,6 +88,17 @@ const { title } = Astro.props;
                 )
             }
         </li>
+        <li id="thingsmenu">
+            {
+                title === "things" ? (
+                    "things"
+                ) : (
+                    <a href="/l68kcom/things/" class="internal-link">
+                        things
+                    </a>
+                )
+            }
+        </li>
         <li id="portfolio">
             {
                 title === "portfolio" ? (
@@ -121,17 +132,7 @@ const { title } = Astro.props;
                 )
             }
         </li>
-        <li id="thingsmenu">
-            {
-                title === "things" ? (
-                    "things"
-                ) : (
-                    <a href="/l68kcom/things/" class="internal-link">
-                        things
-                    </a>
-                )
-            }
-        </li>
+
         <li id="streams">
             {
                 title === "streams" ? (

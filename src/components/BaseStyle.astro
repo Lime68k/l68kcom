@@ -226,10 +226,310 @@
 
     .bidule-sound:before {
         content: "⌇ ⦚ ";
+        color: var(--main-color);
     }
 
     .zine::before {
         content: "📖 ";
         color: var(--main-color);
+    }
+
+    /* --releases class (music)--- */
+
+    .release {
+        display: inline list-item;
+    }
+
+    .release a img {
+        display: none;
+    }
+
+    .release-long:before {
+        content: "♬ ";
+        color: var(--main-color);
+    }
+
+    .release-mid:before {
+        content: "♫ ";
+        color: var(--main-color);
+    }
+
+    .release-mix:before {
+        content: "📶 ";
+        color: var(--main-color);
+    }
+
+    .release-mix {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-short:before {
+        content: "♪ ";
+        color: var(--main-color);
+    }
+
+    .releases:before {
+        content: "♫ ";
+        color: var(--main-color);
+    }
+
+    .release-mixes:before {
+        content: "🌊 ";
+        color: var(--main-color);
+    }
+
+    .release:hover + sub .alt-link {
+        display: none;
+    }
+
+    .release a:hover img {
+        display: block;
+        height: 10%;
+        width: 10%;
+        object-fit: scale-down;
+    }
+
+    .release-short {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-mid {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-long {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .releases-list {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .releases-list ul {
+        padding-left: 8px;
+    }
+
+    .releases-list li {
+        list-style-type: none;
+        font-size: 100%;
+        line-height: 2.2;
+    }
+
+    /*  --------------------------- */
+
+    .stuff-rows {
+        outline: 1px dotted var(--main-color);
+        margin: 8px;
+        text-wrap: balance;
+    }
+
+    /* --------list unfold--------- */
+
+    .clic {
+        text-decoration: dotted underline var(--main-color);
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .clic:hover {
+        color: #dee3df;
+        text-decoration: solid underline var(--main-color);
+        text-decoration-thickness: 2px;
+    }
+
+    .unfold {
+        margin-top: 10px;
+        color: var(--main-color);
+    }
+
+    details > summary {
+        list-style: none;
+    }
+
+    details > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    details {
+        padding: 8px;
+    }
+
+    /* --------------------------- */
+
+    /* -------things classes------- */
+
+    .thing-viz {
+        color: #dee3df;
+        text-decoration-thickness: 2px;
+    }
+
+    .things li {
+        list-style-type: none;
+        font-size: 100%;
+        line-height: 2.2;
+    }
+
+    .things ul {
+        padding-left: 8px;
+    }
+
+    .things {
+        padding-top: 10px;
+    }
+
+    /* --------------------------- */
+
+    /* --------events table------- */
+
+    .time:before {
+        content: "⌛ ";
+        color: var(--main-color);
+    }
+
+    .time,
+    .time-upcoming {
+        margin: 5px;
+    }
+
+    .time-upcoming:before {
+        content: "🗓 ";
+        color: var(--main-color);
+    }
+
+    .events li {
+        list-style-type: none;
+        font-size: 100%;
+        line-height: 2.2;
+    }
+
+    .events {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .events ul {
+        padding-left: 8px;
+    }
+
+    .event {
+        display: inline-block;
+    }
+
+    .event:before {
+        content: "✓ " !important;
+        color: var(--main-color);
+    }
+
+    /* --------------------------- */
+
+    /* --releases class (music)--- */
+
+    .release {
+        display: inline list-item;
+    }
+
+    .release a img {
+        display: none;
+    }
+
+    .release-long:before {
+        content: "♬ ";
+        color: var(--main-color);
+    }
+
+    .release-mid:before {
+        content: "♫ ";
+        color: var(--main-color);
+    }
+
+    .release-mix:before {
+        content: "📶 ";
+        color: var(--main-color);
+    }
+
+    .release-mix {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-short:before {
+        content: "♪ ";
+        color: var(--main-color);
+    }
+
+    .releases:before {
+        content: "♫ ";
+        color: var(--main-color);
+    }
+
+    .release-mixes:before {
+        content: "🌊 ";
+        color: var(--main-color);
+    }
+
+    .release:hover + sub .alt-link {
+        display: none;
+    }
+
+    .release a:hover img {
+        display: block;
+        height: 10%;
+        width: 10%;
+        object-fit: scale-down;
+    }
+
+    .release-short {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-mid {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .release-long {
+        text-decoration: dashed underline gray;
+        display: inline-block;
+    }
+
+    .releases-list {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .releases-list ul {
+        padding-left: 8px;
+    }
+
+    .releases-list li {
+        list-style-type: none;
+        font-size: 80%;
+        line-height: 2.2;
+    }
+
+    /*  --------------------------- */
+
+    .bidules-list li {
+        list-style-type: none;
+        font-size: 100%;
+        line-height: 2.2;
+    }
+
+    .bidule-sound {
+        text-decoration-thickness: 2px;
+    }
+
+    .bidules-list {
+        padding-top: 10px;
+    }
+
+    .bidules-list li {
+        padding-top: 8px;
     }
 </style>

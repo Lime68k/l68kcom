@@ -1,8 +1,30 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Thing from "../components/Thing.astro";
 ---
 
 <BaseLayout title="bidules" desc="they somewhat behave" pageId="bidules">
     <h1 id="bidulestitle">bidules</h1>
     <h4>they somewhat behave</h4>
+    <h5>
+        careful with sound on <span class="bidule-sound notice"
+            >sound bidules</span
+        >!
+    </h5>
+
+    <div class="bidules-list card">
+        <details>
+            <summary class="unfold clic">📂˚°•</summary>
+            <ul>
+                <li>
+                    <Thing
+                        linkName="noiseeeeee"
+                        link="/l68kcom/bidules/noiseeeeee"
+                        thingType="bidule-sound"
+                        linkType="internal-link"
+                    />
+                </li>
+            </ul>
+        </details>
+    </div>
 </BaseLayout>
